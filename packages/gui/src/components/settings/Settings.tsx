@@ -10,6 +10,7 @@ import SettingsGeneral from './SettingsGeneral';
 import SettingsIntegration from './SettingsIntegration';
 import SettingsNFT from './SettingsNFT';
 import SettingsNotifications from './SettingsNotifications';
+import SettingsPeers from './SettingsPeers';
 import SettingsProfiles from './SettingsProfiles';
 
 enum SettingsTab {
@@ -20,6 +21,7 @@ enum SettingsTab {
   INTEGRATION = 'integration',
   NOTIFICATIONS = 'notifications',
   ADVANCED = 'advanced',
+  PEERS = 'peers',
 }
 
 const SettingsTabsPathMapping = {
@@ -30,6 +32,7 @@ const SettingsTabsPathMapping = {
   [SettingsTab.INTEGRATION]: '/dashboard/settings/integration',
   [SettingsTab.NOTIFICATIONS]: '/dashboard/settings/notifications',
   [SettingsTab.ADVANCED]: '/dashboard/settings/advanced',
+  [SettingsTab.PEERS]: '/dashboard/settings/peers',
 };
 
 export default function Settings() {
@@ -82,6 +85,7 @@ export default function Settings() {
               label={<Trans>Notifications</Trans>}
               data-testid="Settings-tab-notifications"
             />
+            <Tab value={SettingsTab.PEERS} label={<Trans>Peers</Trans>} data-testid="Settings-tab-peers" />
             <Tab value={SettingsTab.ADVANCED} label={<Trans>Advanced</Trans>} data-testid="Settings-tab-advanced" />
           </Tabs>
 
@@ -93,6 +97,7 @@ export default function Settings() {
             <Route path="integration" element={<SettingsIntegration />} />
             <Route path="notifications" element={<SettingsNotifications />} />
             <Route path="advanced" element={<SettingsAdvanced />} />
+            <Route path="peers" element={<SettingsPeers />} />
           </Routes>
         </Flex>
       </Flex>
